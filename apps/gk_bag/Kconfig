@@ -1,0 +1,91 @@
+menu "Smart AI Sandbag Configuration"
+
+config ENABLE_GUI_DISPLAY
+    bool "Enable GUI Display"
+    default y
+    help
+      Enable LVGL-based graphical user interface for the smart sandbag.
+      This includes user login, stats display, and training interfaces.
+
+config ENABLE_FORCE_SENSOR
+    bool "Enable Force Sensor"
+    default y
+    help
+      Enable six-axis force/torque sensor for hit detection and analysis.
+      Required for core functionality of the smart sandbag.
+
+config ENABLE_USER_AUTH
+    bool "Enable User Authentication"
+    default y
+    help
+      Enable QR code-based user login and registration system.
+      Allows personalized training data and statistics.
+
+config FORCE_SENSOR_SAMPLE_RATE
+    int "Force Sensor Sample Rate (Hz)"
+    default 100
+    range 10 1000
+    help
+      Set the sampling rate for the force sensor in Hz.
+      Higher rates provide better temporal resolution but use more CPU.
+
+config FORCE_DETECTION_THRESHOLD
+    int "Force Detection Threshold (N)"
+    default 5
+    range 1 50
+    help
+      Minimum force in Newtons required to register as a hit.
+      Lower values increase sensitivity but may trigger on noise.
+
+config MAX_USERS_CACHE
+    int "Maximum Cached Users"
+    default 10
+    range 1 100
+    help
+      Maximum number of user profiles to cache in memory.
+      Affects memory usage and user switching speed.
+
+config ENABLE_TRAINING_MODES
+    bool "Enable Training Modes"
+    default y
+    help
+      Enable various training modes including strength, speed, accuracy, etc.
+      Each mode provides specific feedback and scoring.
+
+config ENABLE_CLOUD_SYNC
+    bool "Enable Cloud Data Synchronization"
+    default n
+    help
+      Enable synchronization of training data and user profiles to Tuya Cloud.
+      Requires network connectivity and Tuya account.
+
+config COMBAT_STATS_UPDATE_INTERVAL
+    int "Combat Stats Update Interval (ms)"
+    default 1000
+    range 100 5000
+    help
+      How frequently to update the combat statistics display in milliseconds.
+      Lower values provide smoother updates but use more CPU.
+
+config ENABLE_DEBUG_OUTPUT
+    bool "Enable Debug Output"
+    default n
+    help
+      Enable detailed debug logging for development and troubleshooting.
+      Should be disabled in production builds.
+
+config STICK_FIGURE_ANIMATION
+    bool "Enable Stick Figure Animation"
+    default y
+    help
+      Enable animated stick figure display based on user characteristics.
+      Provides better visual feedback but uses more CPU and memory.
+
+config PENTAGON_STATS_SMOOTHING
+    bool "Enable Pentagon Stats Smoothing"
+    default y
+    help
+      Enable smoothing transitions for pentagon combat statistics display.
+      Provides smoother visual updates but may delay immediate feedback.
+
+endmenu

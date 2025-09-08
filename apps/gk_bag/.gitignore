@@ -1,0 +1,50 @@
+# Build directories
+build/
+.build/
+out/
+bin/
+
+# Object files
+*.o
+*.obj
+*.elf
+*.exe
+*.hex
+*.bin
+
+# Debug files
+*.debug
+*.map
+*.lst
+
+# Temporary files
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log files
+*.log
+debug.txt
+
+# Configuration backup
+*.bak
+*.old
+
+# Flash dumps
+*.flash
+
+# User data (should not be committed)
+user_data/
+calibration_data.bin
+
+# Generated documentation
+docs/html/
+docs/latex/
